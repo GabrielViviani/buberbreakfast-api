@@ -22,3 +22,4 @@ C:\Users\pwnag\Desktop\FreeCodeCamp\BuberBreakfast\BuberBreakfast\obj\Debug\net6
 C:\Users\pwnag\Desktop\FreeCodeCamp\BuberBreakfast\BuberBreakfast\obj\Debug\net6.0\BuberBreakfast.pdb
 C:\Users\pwnag\Desktop\FreeCodeCamp\BuberBreakfast\BuberBreakfast\obj\Debug\net6.0\BuberBreakfast.genruntimeconfig.cache
 C:\Users\pwnag\Desktop\FreeCodeCamp\BuberBreakfast\BuberBreakfast\obj\Debug\net6.0\ref\BuberBreakfast.dll
+C:\Users\pwnag\Desktop\FreeCodeCamp\BuberBreakfast\BuberBreakfast\bin\Debug\net6.0\ErrorOr.dll

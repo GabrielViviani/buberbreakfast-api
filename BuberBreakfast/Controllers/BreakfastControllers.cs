@@ -1,14 +1,13 @@
 using BuberBreakfast.Contracts.Breakfast;
 using BuberBreakfast.Models;
+using BuberBreakfast.ServiceErrors;
 using BuberBreakfast.Services.Breakfasts;
+using ErrorOr;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BuberBreakfast.Controllers;
 
-[ApiController]
-[Route("[controller]")]
-
-public class BreakfastsController : ControllerBase
+public class BreakfastsController : ApiController
 {
     private readonly IBreakfastService _breakfastservice;
 
@@ -20,78 +19,83 @@ public class BreakfastsController : ControllerBase
     [HttpPost]
     public IActionResult CreateBreakfast(CreateBreakfastRequest request)
     {
-        // Mapeamento dos dados na linguagem da aplicação (C#)
-        var breakfast = new Models.Breakfast(
-            Guid.NewGuid(),
-            request.Name,
-            request.Description,
-            request.StartDateTime,
-            request.EndDateTime,
-            DateTime.UtcNow,
-            request.Savory,
-            request.Sweet);
+        ErrorOr<Breakfast> requestToBreakfastResult = Breakfast.From(request);
+        
+        if (requestToBreakfastResult.IsError)
+        {
+            return Problem(requestToBreakfastResult.Errors);
+        }
 
-        _breakfastservice.CreatedBreakfast(breakfast);
+        var breakfast = requestToBreakfastResult.Value;
 
-        // Converter novamente para o que é definido na API
-        var response = new BreakfastResponse(
-            breakfast.Id,
-            breakfast.Name,
-            breakfast.Description,
-            breakfast.StartDateTime,
-            breakfast.EndDateTime,
-            breakfast.LastModifiedDateTime,
-            breakfast.Savory,
-            breakfast.Sweet);
+        ErrorOr<Created> createBreakfastResult = _breakfastservice.CreatedBreakfast(breakfast);
 
-    return CreatedAtAction(
-        actionName: nameof(GetBreakfast),
-        routeValues: new {id = breakfast.Id},
-        value: response);
+        return createBreakfastResult.Match(
+            created => CreatedAsGetBreakfast(breakfast),
+            errors => Problem(errors));
+
     }
 
     [HttpGet("{id:guid}")]
     public IActionResult GetBreakfast(Guid id)
-    {   
-        Breakfast breakfast = _breakfastservice.GetBreakfast(id);
+    {
+        ErrorOr<Breakfast> getBreakfastResult = _breakfastservice.GetBreakfast(id);
 
-        var response = new BreakfastResponse(
-            breakfast.Id,
-            breakfast.Name,
-            breakfast.Description,
-            breakfast.StartDateTime,
-            breakfast.EndDateTime,
-            breakfast.LastModifiedDateTime,
-            breakfast.Savory,
-            breakfast.Sweet);
-        
-        return Ok(response);
+        return getBreakfastResult.Match(
+            breakfast => Ok(MapBreakfastResponse(breakfast)),
+            errors => Problem(errors));
     }
+
+    
 
     [HttpPut("{id:guid}")]
     public IActionResult UpsertBreakfast(Guid id, UpsertBreakfastRequest request)
     {
-        var breakfast = new Breakfast(
-            id,
-            request.Name,
-            request.Description,
-            request.StartDateTime,
-            request.EndDateTime,
-            DateTime.UtcNow,
-            request.Savory,
-            request.Sweet);
+        ErrorOr<Breakfast> requestToBreakfastResult = Breakfast.From(id, request);
 
-        _breakfastservice.UpsertBreakfast(breakfast);
+        if (requestToBreakfastResult.IsError)
+        {
+            return Problem(requestToBreakfastResult.Errors);
+        }
 
-        // TODO: Retornar 201 caso um novo item seja criado
-        return NoContent();
+        var breakfast = requestToBreakfastResult.Value;
+
+        ErrorOr<UpsertedBreakfast> upsertBreakfastResult = _breakfastservice.UpsertBreakfast(breakfast);
+
+        return upsertBreakfastResult.Match(
+            upserted => upserted.IsNewlyCreated ? CreatedAsGetBreakfast(breakfast) : NoContent(),
+            errors => Problem(errors));
     }
  
     [HttpDelete("{id:guid}")]
     public IActionResult DeleteBreakfast(Guid id)
     {
-        _breakfastservice.DeleteBreakfast(id);
-        return NoContent();
+        ErrorOr<Deleted> deleteBreakfastResult = _breakfastservice.DeleteBreakfast(id);
+
+        return deleteBreakfastResult.Match(
+            Deleted => NoContent(),
+            errors => Problem(errors));
+    }
+
+    private static BreakfastResponse MapBreakfastResponse(Breakfast breakfast)
+    {
+        return new BreakfastResponse(
+            breakfast.Id,
+            breakfast.Name,
+            breakfast.Description,
+            breakfast.StartDateTime,
+            breakfast.EndDateTime,
+            breakfast.LastModifiedDateTime,
+            breakfast.Savory,
+            breakfast.Sweet);
+    }
+
+     private CreatedAtActionResult CreatedAsGetBreakfast(Breakfast breakfast)
+    {
+        return CreatedAtAction(
+            actionName: nameof(GetBreakfast),
+            routeValues: new { id = breakfast.Id },
+            value: MapBreakfastResponse(breakfast));
     }
 
 }

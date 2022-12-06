@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "RC7k/kRoHZusHHbXmRfryPF32Id3dQCtyltR17svSor5bKXs45GYG1y+H2DrqSLKyldK1uLNIkapDiMTdG19yg==",
+  "dgSpecHash": "3Aw/kws6xEUuDOkoU6/Zl0WpB+r1NqF//EODKquE68YT9GrwE/PQ+NwtH9x9DavEb2QBbUtK25XGu5RX2GCYvw==",
   "success": true,
   "projectFilePath": "C:\\Users\\pwnag\\Desktop\\FreeCodeCamp\\BuberBreakfast\\BuberBreakfast\\BuberBreakfast.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\pwnag\\.nuget\\packages\\erroror\\1.2.1\\erroror.1.2.1.nupkg.sha512"
+  ],
   "logs": []
 }
