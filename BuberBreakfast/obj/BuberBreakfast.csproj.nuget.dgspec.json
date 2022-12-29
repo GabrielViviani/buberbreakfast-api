@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\pwnag\\Desktop\\FreeCodeCamp\\BuberBreakfast\\BuberBreakfast\\BuberBreakfast.csproj": {}
+    "C:\\Users\\pwnag\\OneDrive\\Desktop\\BuberBreakfast\\BuberBreakfast\\BuberBreakfast.csproj": {}
   },
   "projects": {
-    "C:\\Users\\pwnag\\Desktop\\FreeCodeCamp\\BuberBreakfast\\BuberBreafast.Contracts\\BuberBreafast.Contracts.csproj": {
+    "C:\\Users\\pwnag\\OneDrive\\Desktop\\BuberBreakfast\\BuberBreafast.Contracts\\BuberBreafast.Contracts.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\pwnag\\Desktop\\FreeCodeCamp\\BuberBreakfast\\BuberBreafast.Contracts\\BuberBreafast.Contracts.csproj",
+        "projectUniqueName": "C:\\Users\\pwnag\\OneDrive\\Desktop\\BuberBreakfast\\BuberBreafast.Contracts\\BuberBreafast.Contracts.csproj",
         "projectName": "BuberBreafast.Contracts",
-        "projectPath": "C:\\Users\\pwnag\\Desktop\\FreeCodeCamp\\BuberBreakfast\\BuberBreafast.Contracts\\BuberBreafast.Contracts.csproj",
+        "projectPath": "C:\\Users\\pwnag\\OneDrive\\Desktop\\BuberBreakfast\\BuberBreafast.Contracts\\BuberBreafast.Contracts.csproj",
         "packagesPath": "C:\\Users\\pwnag\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\pwnag\\Desktop\\FreeCodeCamp\\BuberBreakfast\\BuberBreafast.Contracts\\obj\\",
+        "outputPath": "C:\\Users\\pwnag\\OneDrive\\Desktop\\BuberBreakfast\\BuberBreafast.Contracts\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\pwnag\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -39,6 +39,28 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -58,14 +80,14 @@
         }
       }
     },
-    "C:\\Users\\pwnag\\Desktop\\FreeCodeCamp\\BuberBreakfast\\BuberBreakfast\\BuberBreakfast.csproj": {
+    "C:\\Users\\pwnag\\OneDrive\\Desktop\\BuberBreakfast\\BuberBreakfast\\BuberBreakfast.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\pwnag\\Desktop\\FreeCodeCamp\\BuberBreakfast\\BuberBreakfast\\BuberBreakfast.csproj",
+        "projectUniqueName": "C:\\Users\\pwnag\\OneDrive\\Desktop\\BuberBreakfast\\BuberBreakfast\\BuberBreakfast.csproj",
         "projectName": "BuberBreakfast",
-        "projectPath": "C:\\Users\\pwnag\\Desktop\\FreeCodeCamp\\BuberBreakfast\\BuberBreakfast\\BuberBreakfast.csproj",
+        "projectPath": "C:\\Users\\pwnag\\OneDrive\\Desktop\\BuberBreakfast\\BuberBreakfast\\BuberBreakfast.csproj",
         "packagesPath": "C:\\Users\\pwnag\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\pwnag\\Desktop\\FreeCodeCamp\\BuberBreakfast\\BuberBreakfast\\obj\\",
+        "outputPath": "C:\\Users\\pwnag\\OneDrive\\Desktop\\BuberBreakfast\\BuberBreakfast\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\pwnag\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -82,8 +104,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\pwnag\\Desktop\\FreeCodeCamp\\BuberBreakfast\\BuberBreafast.Contracts\\BuberBreafast.Contracts.csproj": {
-                "projectPath": "C:\\Users\\pwnag\\Desktop\\FreeCodeCamp\\BuberBreakfast\\BuberBreafast.Contracts\\BuberBreafast.Contracts.csproj"
+              "C:\\Users\\pwnag\\OneDrive\\Desktop\\BuberBreakfast\\BuberBreafast.Contracts\\BuberBreafast.Contracts.csproj": {
+                "projectPath": "C:\\Users\\pwnag\\OneDrive\\Desktop\\BuberBreakfast\\BuberBreafast.Contracts\\BuberBreafast.Contracts.csproj"
               }
             }
           }
@@ -98,9 +120,41 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "EntityFramework": {
+              "target": "Package",
+              "version": "[6.4.4, )"
+            },
+            "EntityFramework6.Npgsql": {
+              "target": "Package",
+              "version": "[6.4.3, )"
+            },
             "ErrorOr": {
               "target": "Package",
               "version": "[1.2.1, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "Npgsql": {
+              "target": "Package",
+              "version": "[7.0.0, )"
             }
           },
           "imports": [

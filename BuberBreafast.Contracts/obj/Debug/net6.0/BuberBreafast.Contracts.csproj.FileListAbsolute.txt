@@ -10,3 +10,17 @@ C:\Users\pwnag\Desktop\FreeCodeCamp\BuberBreakfast\BuberBreafast.Contracts\obj\D
 C:\Users\pwnag\Desktop\FreeCodeCamp\BuberBreakfast\BuberBreafast.Contracts\obj\Debug\net6.0\refint\BuberBreafast.Contracts.dll
 C:\Users\pwnag\Desktop\FreeCodeCamp\BuberBreakfast\BuberBreafast.Contracts\obj\Debug\net6.0\BuberBreafast.Contracts.pdb
 C:\Users\pwnag\Desktop\FreeCodeCamp\BuberBreakfast\BuberBreafast.Contracts\obj\Debug\net6.0\ref\BuberBreafast.Contracts.dll
+C:\Users\pwnag\OneDrive\Desktop\BuberBreakfast\BuberBreafast.Contracts\bin\Debug\net6.0\BuberBreafast.Contracts.deps.json
+C:\Users\pwnag\OneDrive\Desktop\BuberBreakfast\BuberBreafast.Contracts\bin\Debug\net6.0\BuberBreafast.Contracts.runtimeconfig.json
+C:\Users\pwnag\OneDrive\Desktop\BuberBreakfast\BuberBreafast.Contracts\bin\Debug\net6.0\BuberBreafast.Contracts.dll
+C:\Users\pwnag\OneDrive\Desktop\BuberBreakfast\BuberBreafast.Contracts\bin\Debug\net6.0\BuberBreafast.Contracts.pdb
+C:\Users\pwnag\OneDrive\Desktop\BuberBreakfast\BuberBreafast.Contracts\obj\Debug\net6.0\BuberBreafast.Contracts.csproj.AssemblyReference.cache
+C:\Users\pwnag\OneDrive\Desktop\BuberBreakfast\BuberBreafast.Contracts\obj\Debug\net6.0\BuberBreafast.Contracts.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\pwnag\OneDrive\Desktop\BuberBreakfast\BuberBreafast.Contracts\obj\Debug\net6.0\BuberBreafast.Contracts.AssemblyInfoInputs.cache
+C:\Users\pwnag\OneDrive\Desktop\BuberBreakfast\BuberBreafast.Contracts\obj\Debug\net6.0\BuberBreafast.Contracts.AssemblyInfo.cs
+C:\Users\pwnag\OneDrive\Desktop\BuberBreakfast\BuberBreafast.Contracts\obj\Debug\net6.0\BuberBreafast.Contracts.csproj.CoreCompileInputs.cache
+C:\Users\pwnag\OneDrive\Desktop\BuberBreakfast\BuberBreafast.Contracts\obj\Debug\net6.0\BuberBreafast.Contracts.dll
+C:\Users\pwnag\OneDrive\Desktop\BuberBreakfast\BuberBreafast.Contracts\obj\Debug\net6.0\refint\BuberBreafast.Contracts.dll
+C:\Users\pwnag\OneDrive\Desktop\BuberBreakfast\BuberBreafast.Contracts\obj\Debug\net6.0\BuberBreafast.Contracts.pdb
+C:\Users\pwnag\OneDrive\Desktop\BuberBreakfast\BuberBreafast.Contracts\obj\Debug\net6.0\BuberBreafast.Contracts.genruntimeconfig.cache
+C:\Users\pwnag\OneDrive\Desktop\BuberBreakfast\BuberBreafast.Contracts\obj\Debug\net6.0\ref\BuberBreafast.Contracts.dll

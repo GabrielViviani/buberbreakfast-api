@@ -1,40 +1,65 @@
 using BuberBreakfast.Models;
+using Microsoft.EntityFrameworkCore;
+using BuberBreakfast.Repositorios.Interface;
 using BuberBreakfast.ServiceErrors;
 using ErrorOr;
 namespace BuberBreakfast.Services.Breakfasts;
 
-public class BreakfastService : IBreakfastService
+public class BreakfastService : IBreakfastRepo
 {
-    private static readonly Dictionary<Guid, Breakfast> _breakfasts = new();
-    public ErrorOr<Created> CreatedBreakfast(Breakfast breakfast)
+    private readonly BreakfastContext _breakfastContext;
+    public IBreakfastRepo(BreakfastContext breakfastContext)
     {
-        _breakfasts.Add(breakfast.Id, breakfast);
-
-        return Result.Created;
+        _breakfastContext = breakfastContext;
     }
 
-    public ErrorOr<Deleted> DeleteBreakfast(Guid id)
+    public async Task<BreakfastModel> AddBreakfast(BreakfastModel breakfast)
     {
-        _breakfasts.Remove(id);
+        await _breakfastContext.Breakfasts.AddAsync(breakfast);
+        await _breakfastContext.SaveChangesAsync();
 
-        return Result.Deleted;
+        return breakfast;
     }
 
-    public ErrorOr<Breakfast> GetBreakfast(Guid id)
+    public async Task<bool> DeleteBreakfast(int id)
     {
-        if (_breakfasts.TryGetValue(id, out var breakfast))
+        BreakfastModel breakfastByID = await GetByID(id);
+
+        if (breakfastByID == null)
         {
-            return breakfast;
+            throw new Exception("The specified ID does not exist in the database");
         }
 
-        return Errors.Breakfast.NotFound;
+        _breakfastContext.Breakfasts.Remove(breakfastByID);
+        await _breakfastContext.SaveChangesAsync();
+        return true;
     }
 
-    public ErrorOr<UpsertedBreakfast> UpsertBreakfast(Breakfast breakfast)
+    public async Task<List<BreakfastModel>> GetBreakfasts()
     {
-        var IsNewlyCreated = !_breakfasts.ContainsKey(breakfast.Id);
-        _breakfasts[breakfast.Id] = breakfast;
+        return await _breakfastContext.Breakfasts.ToListAsync();
+    }
 
-        return new UpsertedBreakfast(IsNewlyCreated);
+    public async Task<BreakfastModel> GetByID(int id)
+    {
+        return await _breakfastContext.Breakfasts.FirstOrDefaultAsync(x => x.Id == id);
+    }
+
+    public async Task<BreakfastModel> UpdateBreakfast(BreakfastModel breakfast, int id)
+    {
+        BreakfastModel breakfastByID = await GetByID(id);
+
+        if (breakfastByID == null)
+        {
+            throw new Exception("The specified ID does not exist in the database");
+        }
+
+        breakfastByID.Name = breakfast.Name;
+        breakfastByID.Description = breakfast.Description;
+
+        _breakfastContext.Breakfasts.Update(breakfastByID);
+        await _breakfastContext.SaveChangesAsync();
+
+        return breakfastByID;
     }
 }
